@@ -1,15 +1,27 @@
 {
   "name": "plantilladocumentacion",
   "version": "1.0.0",
-  "description": "",
+  "description": "API para sistema de adopción de mascotas con documentación Swagger y tests completos",
   "main": "src/app.js",
   "type": "module",
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
-    "test": "mocha test/supertest.test.js"
+    "test": "mocha test/**/*.test.js --timeout 10000",
+    "test:adoption": "mocha test/adoption.router.test.js --timeout 10000",
+    "test:watch": "mocha test/**/*.test.js --watch --timeout 10000",
+    "test:coverage": "nyc mocha test/**/*.test.js --timeout 10000"
   },
-  "keywords": ["backend", "express", "mongoose", "pets", "adoption"],
+  "keywords": [
+    "backend",
+    "express",
+    "mongoose",
+    "pets",
+    "adoption",
+    "swagger",
+    "api",
+    "rest"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -19,11 +31,14 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.7.5",
     "multer": "^1.4.5-lts.1",
-    "supertest": "^6.3.3"
+    "supertest": "^6.3.3",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "chai": "^4.3.7",
     "mocha": "^10.1.0",
-    "nodemon": "3.1.1"
+    "nodemon": "3.1.1",
+    "nyc": "^15.1.0"
   }
 }
